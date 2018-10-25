@@ -1,3 +1,4 @@
+'use strict';
 // Main function
 const animate = (options) => {
     // Define Variables
@@ -22,9 +23,9 @@ const animate = (options) => {
             throw new Error('Invalid direction');
         }
         animateTo = animateTo !== 'auto' ? animateTo : '100%';
-        const value = checkedHeight
-            ? domTarget.scrollHeight
-            : domTarget.scrollWidth;
+        const value = checkedHeight ?
+            domTarget.scrollHeight :
+            domTarget.scrollWidth;
         return `${value * getDecimalFromPercentage(animateTo)}px`;
     };
     // Loops
@@ -35,11 +36,11 @@ const animate = (options) => {
             duration = defaultDuration,
             easing = defaultEasing,
         } = animation;
-        let { animateTo } = animation;
+        let {animateTo} = animation;
 
-        animateTo = pctDimension
-            ? handlePercentage(target, attribute, animateTo)
-            : animateTo;
+        animateTo = pctDimension ?
+            handlePercentage(target, attribute, animateTo) :
+            animateTo;
 
         styles.push({
             attribute,
