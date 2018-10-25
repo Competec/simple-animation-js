@@ -31,13 +31,13 @@ const animate = (options) => {
     animations.forEach((animation) => {
         const {
             attribute,
-            isPercentage = false,
+            pctDimension = false,
             duration = defaultDuration,
             easing = defaultEasing,
         } = animation;
         let { animateTo } = animation;
 
-        animateTo = isPercentage
+        animateTo = pctDimension
             ? handlePercentage(target, attribute, animateTo)
             : animateTo;
 
