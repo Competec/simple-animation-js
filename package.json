@@ -1,10 +1,10 @@
 {
-    "name": "simpleanimejs",
+    "name": "simple-animation-js",
     "version": "1.0.0",
-    "description": "Small Javascript animation library, that uses CSS transitions in the background",
-    "main": "simpleAnimeJs.js",
+    "description": "Simple animation library which uses CSS transitions in the background and allows animating dimension percentages.",
+    "main": "simpleAnimeJs.min.js",
     "license": "MIT",
-    "author": "Raphael Hättich",
+    "author": "Raphael Hättich / Competec Service AG",
     "private": false,
     "scripts": {
         "lint": "eslint simpleAnimeJs.js",
