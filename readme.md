@@ -1,6 +1,3 @@
-<<<<<<< 6136487a2c60562e5e1990b6090f3eb386a91d4b
-simpleAnimationJs
-=======
 # simpleAnimationJs
 
 > Simple animation library which uses CSS transitions in the background and allows animating dimension percentages.
@@ -50,4 +47,3 @@ simpleAnimationJs
    	};
    	simpleAnimationJs(options);
 
->>>>>>> added readme
