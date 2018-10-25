@@ -9,7 +9,9 @@
     "scripts": {
         "lint": "eslint simpleAnimeJs.js",
         "lint-fix": "eslint --fix simpleAnimeJs.js",
-        "build": "npm run lint && node build.js"
+        "test": "mocha test/**/*.spec.js",
+        "coverage": "nyc --reporter=html --reporter=text mocha test/**/*.spec.js",
+        "build": "npm run test & npm run lint && node build.js"
     },
     "devDependencies": {
         "chai": "^4.2.0",
@@ -18,7 +20,9 @@
         "eslint-plugin-import": "^2.14.0",
         "fs": "0.0.1-security",
         "google-closure-compiler-js": "^20180610.0.0",
+        "jsdom": "^12.2.0",
         "mocha": "^5.2.0",
+        "nyc": "^13.1.0",
         "sinon": "^7.0.0",
         "sinon-chai": "^3.2.0"
     }
