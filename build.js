@@ -2,8 +2,8 @@
 const fs = require('fs');
 const { compile } = require('google-closure-compiler-js');
 
-const fileIn = 'simpleAnimeJs.js';
-const fileOut = 'simpleAnimeJs.min.js';
+const fileIn = 'simpleAnimation.js';
+const fileOut = 'simpleAnimation.min.js';
 
 console.info('Compiling...');
 

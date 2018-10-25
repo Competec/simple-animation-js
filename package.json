@@ -2,13 +2,13 @@
     "name": "simple-animation-js",
     "version": "1.0.0",
     "description": "Simple animation library which uses CSS transitions in the background and allows animating dimension percentages.",
-    "main": "simpleAnimeJs.min.js",
+    "main": "simpleAnimation.min.js",
     "license": "MIT",
     "author": "Raphael Hättich / Competec Service AG",
     "private": false,
     "scripts": {
-        "lint": "eslint simpleAnimeJs.js",
-        "lint-fix": "eslint --fix simpleAnimeJs.js",
+        "lint": "eslint simpleAnimation.js",
+        "lint-fix": "eslint --fix simpleAnimation.js",
         "test": "mocha test/**/*.spec.js",
         "coverage": "nyc --reporter=html --reporter=text mocha test/**/*.spec.js",
         "build": "npm run test & npm run lint && node build.js"

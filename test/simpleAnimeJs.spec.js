@@ -1,6 +1,6 @@
 require('./config');
 
-const simpleAnimeJs = require('../simpleAnimeJs');
+const simpleAnimeJs = require('../simpleAnimation');
 
 describe('simpleAnimeJs', function () {
     describe('animations', function () {
@@ -13,13 +13,13 @@ describe('simpleAnimeJs', function () {
                 animations: [
                     {
                         attribute: 'height',
-                        isPercentage: true,
+                        pctDimension: true,
                         animateTo: '100%',
                         duration: 5000
                     },
                     {
                         attribute: 'max-width',
-                        isPercentage: true,
+                        pctDimension: true,
                         animateTo: 'auto',
                         easing: 'fadeout'
                     },
