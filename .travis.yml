@@ -5,4 +5,7 @@ before_script:
  - npm run coverage
  - npm run lint
 script:
-- npm run build
+ - mkdir dist
+ - npm run build
+after_success:
+ -
