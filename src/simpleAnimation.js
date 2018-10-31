@@ -68,7 +68,7 @@ const handlePercentage = (domTarget, attribute, animateTo) => {
  *
  * @returns {options} The animation function
  */
-const animate = (options) => {
+const Main = (options) => {
     // Define Variables
     const {
         target,
@@ -106,4 +106,4 @@ const animate = (options) => {
     });
 };
 
-module.exports = animate;
+module.exports = Main;

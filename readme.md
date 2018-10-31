@@ -1,3 +1,4 @@
+
 # simple-animation-js
 
 > Simple animation library which uses CSS transitions in the background and allows animating dimension percentages.
@@ -6,24 +7,10 @@
 
     npm install simple-animation-js
 
-## Arguments
+## Documentation
 
-### Options
-| Argument | Default Value | Type | Required | Description |
-|--|--|--|--|--|
-| `target` | -- | DOM Node| ✅ | The DOM Node to animate. |
-| `animations` | -- | Array| ✅ | An array of the properties that will be animated, see [Animations](#Animations). At least one property required. |
-| `defaultDuration` | `250` | Number| ❌ | The default animation duration. |
-| `defaultEasing` | `linear` | String| ❌ | The default CSS easing type. |
-
-### Animations
-| Argument | Default Value | Type | Required | Description |
-|--|--|--|--|--|
-| `attribute` | -- | String | ✅ | The CSS Attribute to animate. |
-| `animateTo` | -- | Various | ✅ | The value the element animates to. |
-| `duration` | `defaultDuration` | Number| ❌ | The animation duration. |
-| `easing` | `defaultEasing` | String | ❌ | The CSS easing type. |
-| `pctDimension` | `false` | Boolean | ❌ | This property allows animating percentages on the properties: `width`, `height`, `max-width`, `max-height`, `min-width`, `min-height` |
+The documentation is found under [this link](https://competec.github.io/simple-animation-js).
+The starting point of the documentation is `Main`.
 
 ## Example
 
