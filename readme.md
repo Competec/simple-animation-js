@@ -46,4 +46,3 @@
 	    defaultEasing: 'fadeout'
    	};
    	simpleAnimationJs(options);
-
