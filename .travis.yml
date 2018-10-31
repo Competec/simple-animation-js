@@ -8,4 +8,4 @@ script:
  - mkdir dist
  - npm run build
 after_success:
- -
+ - .travis/push.sh
