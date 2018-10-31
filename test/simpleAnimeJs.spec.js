@@ -1,6 +1,6 @@
 require('./config');
 
-const simpleAnimeJs = require('../simpleAnimation');
+const simpleAnimeJs = require('../src/simpleAnimation');
 
 describe('simpleAnimeJs', function () {
     describe('animations', function () {
