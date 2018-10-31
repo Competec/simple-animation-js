@@ -11,7 +11,8 @@
         "lint-fix": "eslint --fix src/**/*.js",
         "test": "mocha test/**/*.spec.js",
         "coverage": "nyc --reporter=html --reporter=text mocha test/**/*.spec.js",
-        "build": "node build.js"
+        "build": "node build.js",
+        "create-documentation": "jsdoc src/simpleAnimation.js"
     },
     "devDependencies": {
         "chai": "^4.2.0",
