@@ -20,7 +20,7 @@ The starting point of the documentation is `Main`.
 		target: elementToAnimate,
 		animations: [{
 		    attribute: 'height',
-		    animateTo: '100%'
+		    animateTo: '100%',
 		    duration: 400,
 		    easing: 'fadein',
 		    isPercentage: true
