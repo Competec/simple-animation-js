@@ -69,7 +69,6 @@ const handlePercentage = (domTarget, attribute, animateTo) => {
  * @returns {options} The animation function
  */
 const Main = (options) => {
-    // Define Variables
     const {
         target,
         animations,
@@ -78,7 +77,6 @@ const Main = (options) => {
     } = options;
     const transitions = [];
     const styles = [];
-    // Loops
     animations.forEach((animation) => {
         const {
             attribute,
@@ -98,9 +96,7 @@ const Main = (options) => {
         });
         transitions.push(`${attribute} ${msToSeconds(duration)} ${easing}`);
     });
-    // Append transition before attributes
     target.style.transition = transitions.join();
-    // Append attributes after transitions
     styles.forEach((style) => {
         target.style[style.attribute] = style.animateTo;
     });
