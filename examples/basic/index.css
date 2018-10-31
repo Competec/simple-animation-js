@@ -1,4 +1,5 @@
 .div {
+    position: relative;
     width: 50%;
     height: 300px;
     opacity: 0.1;
