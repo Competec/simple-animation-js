@@ -1,7 +1,8 @@
 language: node_js
-jdk: oraclejdk8
-    - extra-android-m2repository
+node_js: 
+  - "lts/*"
 before_script:
  - npm run coverage
+ - npm run lint
 script:
 - npm run build
