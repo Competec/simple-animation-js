@@ -1,0 +1,7 @@
+language: node_js
+jdk: oraclejdk8
+    - extra-android-m2repository
+before_script:
+ - npm run coverage
+script:
+- npm run build
