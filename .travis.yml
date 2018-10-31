@@ -6,6 +6,8 @@ before_script:
   - npm run lint
 script:
   - npm run build
+before_deploy:
+  - npm run create-documentation
 deploy:
   provider: pages
   skip-cleanup: true
