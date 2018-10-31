@@ -5,7 +5,4 @@ before_script:
  - npm run coverage
  - npm run lint
 script:
- - mkdir dist
  - npm run build
-after_success:
- - .travis/push.sh
