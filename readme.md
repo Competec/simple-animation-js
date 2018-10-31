@@ -22,7 +22,7 @@ The starting point of the documentation is `Main`.
 		    attribute: 'height',
 		    animateTo: '100%',
 		    duration: 400,
-		    easing: 'fadein',
+		    easing: 'ease-in',
 		    isPercentage: true
 	    },
 	    {
@@ -30,6 +30,7 @@ The starting point of the documentation is `Main`.
 		    animateTo: 1
 	    }],
 	    defaultDuration: 350,
-	    defaultEasing: 'fadeout'
+	    defaultEasing: 'ease-out
+		'
    	};
    	simpleAnimationJs(options);
