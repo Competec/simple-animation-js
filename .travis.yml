@@ -2,7 +2,15 @@ language: node_js
 node_js: 
   - "lts/*"
 before_script:
- - npm run coverage
- - npm run lint
+  - npm run coverage
+  - npm run lint
 script:
- - npm run build
+  - npm run build
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep-history: true
+  local-dir: ./out
+  on:
+    branch: gh-pages
