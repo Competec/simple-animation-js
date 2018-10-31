@@ -1,0 +1,9 @@
+.div {
+    width: 50%;
+    height: 300px;
+    opacity: 0.1;
+    background-color: blue;
+}
+.button {
+    margin-top: 40px;
+}
