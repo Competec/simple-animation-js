@@ -20,7 +20,7 @@ describe('simpleAnimeJs', function () {
                     {
                         attribute: 'max-width',
                         pctDimension: true,
-                        animateTo: 'auto',
+                        animateTo: '100%',
                         easing: 'fadeout'
                     },
                     {
