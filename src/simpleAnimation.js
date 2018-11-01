@@ -1,21 +1,21 @@
 'use strict';
 /**
- @typedef options
- @type {Object}
- @property {DOMnode} target The DOM Node to animate.
- @property {animation[]} animations An array of the properties that will be animated, see Animations. At least one property required.
- @property {number=} [defaultDuration=250] The default animation duration.
- @property {string=} [defaultEasing=linear] The default CSS easing type.
- */
+* @typedef options
+* @type {Object}
+* @property {HTMLElement} target The DOM Node to animate.
+* @property {animation[]} animations An array of the properties that will be animated, see Animations. At least one property required.
+* @property {number=} [defaultDuration=250] The default animation duration.
+* @property {string=} [defaultEasing=linear] The default CSS easing type.
+*/
 /**
- @typedef animation
- @type {Object}
- @property {string} attribute The CSS Attribute to animate.
- @property {various} animateTo The value the element animates to.
- @property {number=} [duration=defaultDuration] The default CSS easing type.
- @property {string=} [easing=defaultEasing] The default CSS easing type.
- @property {boolean=} [pctDimension=false] The default CSS easing type.
- */
+* @typedef animation
+* @type {Object}
+* @property {string} attribute The CSS Attribute to animate.
+* @property {various} animateTo The value the element animates to.
+* @property {number=} [duration=defaultDuration] The default CSS easing type.
+* @property {string=} [easing=defaultEasing] The default CSS easing type.
+* @property {boolean=} [pctDimension=false] The default CSS easing type.
+*/
 /**
  * Get a decimal value from a percentage string.
  * @function
@@ -47,7 +47,7 @@ const msToSeconds = value => `${value / 1000}s`;
 /**
  * Converts the given percentage to pixel equvalent.
  * @function
- * @param {DOMnode} domTarget The DOM Node to get the height and width from.
+ * @param {HTMLElement} domTarget The DOM Node to get the height and width from.
  * @param {string} attribute CSS attribute to check if it contains height or width.
  * @param {string} animateTo The string with the end percentage.
  * @returns {string} the result as string with 'px' added.
@@ -66,9 +66,9 @@ const handlePercentage = (domTarget, attribute, animateTo) => {
 /**
  * Entry point of the library
  *
- * @returns {options} The animation function
+ * @param {options} options The animation function
  */
-const Main = (options) => {
+ const Main = (options) => {
     const {
         target,
         animations,
