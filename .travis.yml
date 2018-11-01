@@ -6,6 +6,7 @@ before_script:
   - npm run lint
 script:
   - npm run build
+  - cd examples/basic/ && npm run build
 before_deploy:
   - npm run create-documentation
 deploy:
