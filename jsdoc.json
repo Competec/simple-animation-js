@@ -12,15 +12,17 @@
         "plugins/markdown"
     ],
     "templates": {
-        "referenceTitle": "simple-animation-js",
-        "disableSort": false,
-        "collapse": true
+        "referenceTitle": "simple-animation-js"
     },
     "opts": {
         "destination": "./docs/",
         "encoding": "utf8",
         "private": true,
         "recurse": true,
-        "template": "./node_modules/jsdoc-template"
+        "template": "node_modules/docdash"
+    },
+    "docdash": {
+        "typedefs": true,
+        "search": true
     }
 }
