@@ -68,7 +68,7 @@ const handlePercentage = (domTarget, attribute, animateTo) => {
  * @module simpleAnimation
  * @param {options} options The animation function
  */
- const Main = (options) => {
+const Main = (options) => {
     const {
         target,
         animations,
