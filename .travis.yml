@@ -4,10 +4,10 @@ node_js:
 before_script:
   - npm run coverage
   - npm run lint
-  - cd examples/basic/ && npm install
+  - cd examples/basic/ && npm install && cd ../..
 script:
   - npm run build
-  - cd examples/basic/ && npm run build
+  - cd examples/basic/ && npm run build && cd ../..
 before_deploy:
   - npm run create-documentation
 deploy:
