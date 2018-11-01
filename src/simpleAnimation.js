@@ -8,7 +8,7 @@ const INCLUDE_DEBUG = true;
 * @property {animation[]} animations An array of the properties that will be animated, see Animations. At least one property required.
 * @property {number=} [defaultDuration=250] The default animation duration.
 * @property {string=} [defaultEasing=linear] The default CSS easing type.
-* @property {boolean=} [DEBUG=false] Show debug messages.
+* @property {boolean=} [DEBUG=false] Show debug messages. ⚠ Only avaible in the *.debug.js version of the module.
 */
 /**
 * @typedef animation
