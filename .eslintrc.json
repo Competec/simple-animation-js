@@ -25,7 +25,7 @@
       // Possible errors
       "comma-dangle": ["error", "always-multiline"],
       "no-cond-assign": ["error", "except-parens"],
-      "no-console": "warn",
+      "no-console": "off",
       "no-constant-condition": "error",
       "no-control-regex": "error",
       "no-debugger": "error",
@@ -106,7 +106,7 @@
       "no-sequences": "error",
       "no-throw-literal": "error",
       "no-unmodified-loop-condition": "error",
-      "no-unused-expressions": "error",
+      "no-unused-expressions": "off",
       "no-unused-labels": "error",
       "no-useless-call": "error",
       "no-useless-concat": "error",

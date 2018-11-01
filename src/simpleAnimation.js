@@ -72,7 +72,6 @@ const handlePercentage = (domTarget, attribute, animateTo) => {
  * @param {options} options The animation function
  */
 const Main = (options) => {
-    
     const {
         target,
         animations,
@@ -80,7 +79,7 @@ const Main = (options) => {
         defaultEasing = 'linear',
         DEBUG = false,
     } = options;
-    DEBUG&&INCLUDE_DEBUG&&console.log("DEBUG");
+    DEBUG && INCLUDE_DEBUG && console.log('DEBUG');
     const transitions = [];
     const styles = [];
     animations.forEach((animation) => {
