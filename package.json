@@ -11,7 +11,9 @@
         "lint-fix": "eslint --fix src/**/*.js",
         "test": "mocha test/**/*.spec.js",
         "coverage": "nyc --reporter=html --reporter=text mocha test/**/*.spec.js",
-        "build": "google-closure-compiler --js=src/simpleAnimation.js --js_output_file=dist/simpleAnimation.min.js --assume_function_wrapper",
+        "build-prod": "google-closure-compiler --js=src/simpleAnimation.js --js_output_file=dist/simpleAnimation.min.js --assume_function_wrapper --define='INCLUDE_DEBUG=false'",
+        "build-debug": "google-closure-compiler --js=src/simpleAnimation.js --js_output_file=dist/simpleAnimation.debug.js --assume_function_wrapper --define='INCLUDE_DEBUG=true'",
+        "build": "npm run build-prod && npm run build-debug",
         "create-documentation": "rm -rf docs && jsdoc --configure jsdoc.json --verbose"
     },
     "devDependencies": {
