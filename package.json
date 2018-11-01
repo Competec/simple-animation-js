@@ -1,6 +1,6 @@
 {
     "name": "simple-animation-js",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Simple animation library which uses CSS transitions in the background and allows animating dimension percentages.",
     "main": "dist/simpleAnimation.min.js",
     "license": "MIT",
