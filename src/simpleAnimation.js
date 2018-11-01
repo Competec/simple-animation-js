@@ -65,7 +65,7 @@ const handlePercentage = (domTarget, attribute, animateTo) => {
 };
 /**
  * Parameters to call the module with.
- * @module
+ * @module simpleAnimation
  * @param {options} options The animation function
  */
  const Main = (options) => {
