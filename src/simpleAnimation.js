@@ -1,4 +1,6 @@
 'use strict';
+/** @define {boolean} */
+const INCLUDE_DEBUG = true;
 /**
 * @typedef options
 * @type {Object}
@@ -6,6 +8,7 @@
 * @property {animation[]} animations An array of the properties that will be animated, see Animations. At least one property required.
 * @property {number=} [defaultDuration=250] The default animation duration.
 * @property {string=} [defaultEasing=linear] The default CSS easing type.
+* @property {boolean=} [DEBUG=false] Show debug messages.
 */
 /**
 * @typedef animation
@@ -69,12 +72,15 @@ const handlePercentage = (domTarget, attribute, animateTo) => {
  * @param {options} options The animation function
  */
 const Main = (options) => {
+    
     const {
         target,
         animations,
         defaultDuration = 250,
         defaultEasing = 'linear',
+        DEBUG = false,
     } = options;
+    DEBUG&&INCLUDE_DEBUG&&console.log("DEBUG");
     const transitions = [];
     const styles = [];
     animations.forEach((animation) => {
