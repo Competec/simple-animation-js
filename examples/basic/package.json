@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "rm -rf dist/ && parcel src/index.js",
-    "build": "rm -rf dist/ && parcel build src/index.js"
+    "build": "rm -rf dist/ && parcel build src/index.js",
+    "serve": "serve"
   },
   "keywords": [
     "simple-animation-js"
@@ -13,6 +14,7 @@
   "author": "Raphael Hättich",
   "license": "MIT",
   "devDependencies": {
-    "parcel-bundler": "^1.10.3"
+    "parcel-bundler": "^1.10.3",
+    "serve": "^10.0.2"
   }
 }
