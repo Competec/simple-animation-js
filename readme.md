@@ -10,7 +10,7 @@
 ## Documentation
 
 The documentation is found under [this link](https://competec.github.io/simple-animation-js).
-The starting point of the documentation is `Main`.
+The starting point of the documentation is the Module `simpleAnimation`.
 
 ## Example
 
