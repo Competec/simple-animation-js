@@ -64,8 +64,8 @@ const handlePercentage = (domTarget, attribute, animateTo) => {
     return `${value * getDecimalFromPercentage(animateTo)}px`;
 };
 /**
- * Entry point of the library
- *
+ * Parameters to call the module with.
+ * @module
  * @param {options} options The animation function
  */
  const Main = (options) => {
