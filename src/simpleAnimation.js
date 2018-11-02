@@ -41,10 +41,10 @@ const checkIfHeight = value => value.indexOf('height') !== -1;
  */
 const checkIfWidth = value => value.indexOf('width') !== -1;
 /**
- * Convert miliseconds to seconds and add a 's' at the end.
+ * Convert miliseconds to seconds and add a `s` at the end.
  * @function
  * @param {number} value - The number to convert
- * @returns {string} the result as string with a 's' at the end.
+ * @returns {string} the result as string with a `s` at the end.
  */
 const msToSeconds = value => `${value / 1000}s`;
 /**
@@ -53,14 +53,14 @@ const msToSeconds = value => `${value / 1000}s`;
  * @param {HTMLElement} domTarget The DOM Node to get the height and width from.
  * @param {string} attribute CSS attribute to check if it contains height or width.
  * @param {string} animateTo The string with the end percentage.
- * @returns {string} the result as string with 'px' added.
+ * @returns {string} the result as string with `px` added.
  */
 const handlePercentage = (domTarget, attribute, animateTo, DEBUG) => {
     DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: "pctToScroll" is true, convert "${animateTo}"`);
     const checkedHeight = checkIfHeight(attribute);
     const checkedWidth = checkIfWidth(attribute);
     if (!checkedHeight && !checkedWidth) {
-        throw new Error('Invalid direction');
+        throw new Error(`Invalid direction`, attribute);
     }
     const value = checkedHeight ?
         domTarget.scrollHeight :
@@ -83,6 +83,21 @@ const Main = (options) => {
         DEBUG = false,
     } = options;
     DEBUG && INCLUDE_DEBUG && console.info('DEBUG: simpleAnimation startet with config:', options);
+    if(!(target instanceof Element || target instanceof HTMLDocument)) {
+        throw new Error(`target undefinied or not HTMLElement`, target);
+    };
+    if(!Array.isArray(animations)) {
+        throw new Error(`animations undefinied or not Array: ${animations}`);
+    };
+    if(typeof defaultDuration !== 'number') {
+        throw new Error(`defaultDuration is not a number: ${defaultDuration}`);
+    };
+    if(typeof defaultEasing !== 'string') {
+        throw new Error(`defaultEasing is not a string: ${defaultEasing}`);
+    };
+    if(typeof DEBUG !== 'boolean') {
+        throw new Error(`DEBUG is not a boolean: ${DEBUG}`);
+    };
     const transitions = [];
     const styles = [];
     animations.forEach((animation, index) => {
@@ -94,7 +109,18 @@ const Main = (options) => {
             easing = defaultEasing,
         } = animation;
         let {animateTo} = animation;
-
+        if(typeof attribute !== 'string') {
+            throw new Error(`attribute undefinied or false type: ${attribute}`);
+        };
+        if(typeof pctToScroll !== 'boolean') {
+            throw new Error(`pctToScroll is not a boolean: ${pctToScroll}`);
+        };
+        if(typeof duration !== 'number') {
+            throw new Error(`duration is not a number: ${duration}`);
+        };
+        if(typeof easing !== 'string') {
+            throw new Error(`easing is not a string ${easing}`);
+        };
         animateTo = pctToScroll ?
             handlePercentage(target, attribute, animateTo, DEBUG) :
             animateTo;
@@ -107,14 +133,18 @@ const Main = (options) => {
         transitions.push(transition);
         DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: animate "${attribute}" to "${animateTo}" with transition: ${transition}`);
     });
+    const joinedTransitions = transitions.join();
     DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: transitions to append: ${transitions.join()}`);
-    target.style.transition = transitions.join();
+    target.style.transition = joinedTransitions;
     DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: transitions now are: ${target.style.transition}`);
     styles.forEach((style) => {
         DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: attribute to append: ${style.attribute}, value to append: ${style.animateTo}`);
         target.style[style.attribute] = style.animateTo;
         DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: attribute "${style.attribute}" now is: ${target.style[style.attribute]}`);
     });
+    if(target.style.transition === '') {
+        throw new Error(`Transitions invalid: ${transitions}`);
+    };
 };
 
 module.exports = Main;
