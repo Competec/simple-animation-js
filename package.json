@@ -10,11 +10,13 @@
         "lint": "eslint src/**/*.js",
         "lint-fix": "eslint --fix src/**/*.js",
         "test": "mocha test/**/*.spec.js",
-        "coverage": "nyc --reporter=html --reporter=text mocha test/**/*.spec.js",
+        "coverage": "nyc --reporter=html --reporter=text --reporter=json mocha test/**/*.spec.js",
+        "check-coverage": "istanbul-threshold-exit-code coverage/coverage-final.json --global 100",
         "build-prod": "google-closure-compiler --js=src/simpleAnimation.js --js_output_file=dist/simpleAnimation.min.js --assume_function_wrapper --define='INCLUDE_DEBUG=false'",
         "build-debug": "google-closure-compiler --js=src/simpleAnimation.js --js_output_file=dist/simpleAnimation.debug.js --assume_function_wrapper --define='INCLUDE_DEBUG=true'",
         "build": "npm run build-prod && npm run build-debug",
-        "create-documentation": "rm -rf docs && jsdoc --configure jsdoc.json --verbose"
+        "create-documentation": "jsdoc --configure jsdoc.json --verbose",
+        "pre-commit": "npm run lint && npm run coverage && npm run check-coverage && npm run build && npm run create-documentation"
     },
     "devDependencies": {
         "chai": "^4.2.0",
@@ -24,6 +26,7 @@
         "eslint-plugin-import": "^2.14.0",
         "fs": "0.0.1-security",
         "google-closure-compiler": "^20181008.0.0",
+        "istanbul-threshold-exit-code": "^1.0.3",
         "jsdoc": "^3.5.5",
         "jsdom": "^12.2.0",
         "mocha": "^5.2.0",
