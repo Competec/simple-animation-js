@@ -17,7 +17,7 @@ const INCLUDE_DEBUG = true;
 * @property {various} animateTo The value the element animates to.
 * @property {number=} [duration=defaultDuration] The default CSS easing type.
 * @property {string=} [easing=defaultEasing] The default CSS easing type.
-* @property {boolean=} [pctToScroll=false] Enable if you want to use percentages to show Content without set height or width. Mainly used to show content that is hidden with height/width: 0.
+* @property {boolean=} [pctToScroll=false] Converts `animateTo` percentage to pixel using `scrollHeight` and `scrollWidth`. Supported Attributes are: `width`/`min-widt`/`max-width`/`height`/`min-height`/`max-height`.
 */
 /**
  * Get a decimal value from a percentage string.
