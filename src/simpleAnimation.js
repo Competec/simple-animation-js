@@ -65,7 +65,7 @@ const handlePercentage = (domTarget, attribute, animateTo, DEBUG) => {
         domTarget.scrollHeight :
         domTarget.scrollWidth;
     const pixel = `${value * getDecimalFromPercentage(animateTo)}px`;
-    DEBUG && INCLUDE_DEBUG && console.log(`converted ${animateTo} to ${pixel} from ${attribute}`);
+    DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: converted ${animateTo} to ${pixel} from ${attribute}`);
     return pixel;
 };
 /**
@@ -81,7 +81,7 @@ const Main = (options) => {
         defaultEasing = 'linear',
         DEBUG = false,
     } = options;
-    DEBUG && INCLUDE_DEBUG && console.log('simpleAnimation startet with config', options);
+    DEBUG && INCLUDE_DEBUG && console.info('DEBUG: simpleAnimation startet with config', options);
     const transitions = [];
     const styles = [];
     animations.forEach((animation) => {
@@ -103,8 +103,7 @@ const Main = (options) => {
         });
         const transition = `${attribute} ${msToSeconds(duration)} ${easing}`;
         transitions.push(transition);
-
-        DEBUG && INCLUDE_DEBUG && console.log(`animate ${attribute} to ${animateTo} with transition: "${transition}"`);
+        DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: animate ${attribute} to ${animateTo} with transition: "${transition}"`);
     });
     target.style.transition = transitions.join();
     styles.forEach((style) => {
