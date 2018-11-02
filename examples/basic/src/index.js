@@ -2,22 +2,24 @@ import simpleAnimationJs from '../../../dist/simpleAnimation.debug';
 
 document.getElementById('button').addEventListener('click', () => {
     const options = {
-        target: document.getElementById('div'),
+        target: document.getElementById('wrapper'),
         animations: [
             {
-                attribute: 'width',
+                attribute: 'height',
                 animateTo: '100%',
-                duration: 200,
+                duration: 1200,
                 easing: 'ease-in',
-                isPercentage: true
+                pctContent: true
             },
             {
                 attribute: 'opacity',
-                animateTo: 1
+                animateTo: 1,
+                duration: 5500
             }
         ],
         defaultDuration: 1000,
-        defaultEasing: 'ease-out'
+        defaultEasing: 'ease-out',
+        DEBUG: true,
     };
 
     simpleAnimationJs(options);
