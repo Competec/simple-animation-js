@@ -27,7 +27,7 @@ describe('simpleAnimeJs', function () {
                         attribute: 'opacity',
                         animateTo: 1
                     }
-                ]
+                ],
             }
         });
         it('should set height and opacity variables', () => {
@@ -46,6 +46,7 @@ describe('simpleAnimeJs', function () {
         it('should use set default easing and default duration', () => {
             this.options.defaultEasing = 'fadein';
             this.options.defaultDuration = 1337;
+            this.options.DEBUG = true;
             
             simpleAnimeJs(this.options);
             
