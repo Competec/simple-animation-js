@@ -56,7 +56,6 @@ const msToSeconds = value => `${value / 1000}s`;
  * @returns {string} the result as string with 'px' added.
  */
 const handlePercentage = (domTarget, attribute, animateTo, DEBUG) => {
-    console.log('hallo');
     const checkedHeight = checkIfHeight(attribute);
     const checkedWidth = checkIfWidth(attribute);
     if (!checkedHeight && !checkedWidth) {
