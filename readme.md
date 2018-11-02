@@ -1,7 +1,7 @@
 
 # simple-animation-js
 
-> Simple animation library which uses CSS transitions in the background and allows animating dimension percentages.
+> Simple animation library which uses CSS transitions in the background and allows animating dimension percentages with scrollWidth and scrollHeight.
 
 ## Installation
 
@@ -23,7 +23,7 @@ The starting point of the documentation is the Module `simpleAnimation`.
 		    animateTo: '100%',
 		    duration: 400,
 		    easing: 'ease-in',
-		    pctContent: true
+		    pctToScroll: true
 	    },
 	    {
 		    attribute: 'opacity',
