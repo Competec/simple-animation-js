@@ -23,7 +23,7 @@ The starting point of the documentation is the Module `simpleAnimation`.
 		    animateTo: '100%',
 		    duration: 400,
 		    easing: 'ease-in',
-		    isPercentage: true
+		    pctContent: true
 	    },
 	    {
 		    attribute: 'opacity',

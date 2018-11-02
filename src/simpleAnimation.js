@@ -17,7 +17,7 @@ const INCLUDE_DEBUG = true;
 * @property {various} animateTo The value the element animates to.
 * @property {number=} [duration=defaultDuration] The default CSS easing type.
 * @property {string=} [easing=defaultEasing] The default CSS easing type.
-* @property {boolean=} [pctDimension=false] The default CSS easing type.
+* @property {boolean=} [pctContent=false] Enable if you want to use percentages to show Content without set height or width. Mainly used to show content that is hidden with height/width: 0.
 */
 /**
  * Get a decimal value from a percentage string.
@@ -55,7 +55,8 @@ const msToSeconds = value => `${value / 1000}s`;
  * @param {string} animateTo The string with the end percentage.
  * @returns {string} the result as string with 'px' added.
  */
-const handlePercentage = (domTarget, attribute, animateTo) => {
+const handlePercentage = (domTarget, attribute, animateTo, DEBUG) => {
+    console.log('hallo');
     const checkedHeight = checkIfHeight(attribute);
     const checkedWidth = checkIfWidth(attribute);
     if (!checkedHeight && !checkedWidth) {
@@ -64,7 +65,9 @@ const handlePercentage = (domTarget, attribute, animateTo) => {
     const value = checkedHeight ?
         domTarget.scrollHeight :
         domTarget.scrollWidth;
-    return `${value * getDecimalFromPercentage(animateTo)}px`;
+    const pixel = `${value * getDecimalFromPercentage(animateTo)}px`;
+    DEBUG && INCLUDE_DEBUG && console.log(`converted ${animateTo} to ${pixel} from ${attribute}`);
+    return pixel;
 };
 /**
  * Parameters to call the module with.
@@ -79,27 +82,30 @@ const Main = (options) => {
         defaultEasing = 'linear',
         DEBUG = false,
     } = options;
-    DEBUG && INCLUDE_DEBUG && console.log('DEBUG');
+    DEBUG && INCLUDE_DEBUG && console.log('simpleAnimation startet with config', options);
     const transitions = [];
     const styles = [];
     animations.forEach((animation) => {
         const {
             attribute,
-            pctDimension = false,
+            pctContent = false,
             duration = defaultDuration,
             easing = defaultEasing,
         } = animation;
         let {animateTo} = animation;
 
-        animateTo = pctDimension ?
-            handlePercentage(target, attribute, animateTo) :
+        animateTo = pctContent ?
+            handlePercentage(target, attribute, animateTo, DEBUG) :
             animateTo;
 
         styles.push({
             attribute,
             animateTo,
         });
-        transitions.push(`${attribute} ${msToSeconds(duration)} ${easing}`);
+        const transition = `${attribute} ${msToSeconds(duration)} ${easing}`;
+        transitions.push(transition);
+
+        DEBUG && INCLUDE_DEBUG && console.log(`animate ${attribute} to ${animateTo} with transition: "${transition}"`);
     });
     target.style.transition = transitions.join();
     styles.forEach((style) => {

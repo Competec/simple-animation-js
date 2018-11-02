@@ -13,13 +13,13 @@ describe('simpleAnimeJs', function () {
                 animations: [
                     {
                         attribute: 'height',
-                        pctDimension: true,
+                        pctContent: true,
                         animateTo: '100%',
                         duration: 5000
                     },
                     {
                         attribute: 'max-width',
-                        pctDimension: true,
+                        pctContent: true,
                         animateTo: '100%',
                         easing: 'fadeout'
                     },
