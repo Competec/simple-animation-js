@@ -56,6 +56,7 @@ const msToSeconds = value => `${value / 1000}s`;
  * @returns {string} the result as string with 'px' added.
  */
 const handlePercentage = (domTarget, attribute, animateTo, DEBUG) => {
+    DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: "pctToScroll" is true, convert "${animateTo}"`);
     const checkedHeight = checkIfHeight(attribute);
     const checkedWidth = checkIfWidth(attribute);
     if (!checkedHeight && !checkedWidth) {
@@ -65,7 +66,7 @@ const handlePercentage = (domTarget, attribute, animateTo, DEBUG) => {
         domTarget.scrollHeight :
         domTarget.scrollWidth;
     const pixel = `${value * getDecimalFromPercentage(animateTo)}px`;
-    DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: converted ${animateTo} to ${pixel} from ${attribute}`);
+    DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: converted "${animateTo}" to "${pixel}" from attribute "${attribute}"`);
     return pixel;
 };
 /**
@@ -81,10 +82,11 @@ const Main = (options) => {
         defaultEasing = 'linear',
         DEBUG = false,
     } = options;
-    DEBUG && INCLUDE_DEBUG && console.info('DEBUG: simpleAnimation startet with config', options);
+    DEBUG && INCLUDE_DEBUG && console.info('DEBUG: simpleAnimation startet with config:', options);
     const transitions = [];
     const styles = [];
-    animations.forEach((animation) => {
+    animations.forEach((animation, index) => {
+        DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: process ${index + 1}. animation with options:`, animation);
         const {
             attribute,
             pctToScroll = false,
@@ -103,11 +105,15 @@ const Main = (options) => {
         });
         const transition = `${attribute} ${msToSeconds(duration)} ${easing}`;
         transitions.push(transition);
-        DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: animate ${attribute} to ${animateTo} with transition: "${transition}"`);
+        DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: animate "${attribute}" to "${animateTo}" with transition: ${transition}`);
     });
+    DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: transitions to append: ${transitions.join()}`);
     target.style.transition = transitions.join();
+    DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: transitions now are: ${target.style.transition}`);
     styles.forEach((style) => {
+        DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: attribute to append: ${style.attribute}, value to append: ${style.animateTo}`);
         target.style[style.attribute] = style.animateTo;
+        DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: attribute "${style.attribute}" now is: ${target.style[style.attribute]}`);
     });
 };
 
