@@ -1,6 +1,9 @@
 # genereated documentation
 docs/
 
+# package-lock
+package-lock.json
+
 # Logs
 logs
 *.log
