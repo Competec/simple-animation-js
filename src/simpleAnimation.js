@@ -83,21 +83,21 @@ const Main = (options) => {
         DEBUG = false,
     } = options;
     DEBUG && INCLUDE_DEBUG && console.info('DEBUG: simpleAnimation startet with config:', options);
-    if(!(target instanceof Element || target instanceof HTMLDocument)) {
+    if (!(target instanceof Element || target instanceof HTMLDocument)) {
         throw new Error(`target undefinied or not HTMLElement`, target);
-    };
-    if(!Array.isArray(animations)) {
+    }
+    if (!Array.isArray(animations)) {
         throw new Error(`animations undefinied or not Array: ${animations}`);
-    };
-    if(typeof defaultDuration !== 'number') {
+    }
+    if (typeof defaultDuration !== 'number') {
         throw new Error(`defaultDuration is not a number: ${defaultDuration}`);
-    };
-    if(typeof defaultEasing !== 'string') {
+    }
+    if (typeof defaultEasing !== 'string') {
         throw new Error(`defaultEasing is not a string: ${defaultEasing}`);
-    };
-    if(typeof DEBUG !== 'boolean') {
+    }
+    if (typeof DEBUG !== 'boolean') {
         throw new Error(`DEBUG is not a boolean: ${DEBUG}`);
-    };
+    }
     const transitions = [];
     const styles = [];
     animations.forEach((animation, index) => {
@@ -109,18 +109,18 @@ const Main = (options) => {
             easing = defaultEasing,
         } = animation;
         let {animateTo} = animation;
-        if(typeof attribute !== 'string') {
+        if (typeof attribute !== 'string') {
             throw new Error(`attribute undefinied or false type: ${attribute}`);
-        };
-        if(typeof pctToScroll !== 'boolean') {
+        }
+        if (typeof pctToScroll !== 'boolean') {
             throw new Error(`pctToScroll is not a boolean: ${pctToScroll}`);
-        };
-        if(typeof duration !== 'number') {
+        }
+        if (typeof duration !== 'number') {
             throw new Error(`duration is not a number: ${duration}`);
-        };
-        if(typeof easing !== 'string') {
+        }
+        if (typeof easing !== 'string') {
             throw new Error(`easing is not a string ${easing}`);
-        };
+        }
         animateTo = pctToScroll ?
             handlePercentage(target, attribute, animateTo, DEBUG) :
             animateTo;
@@ -142,9 +142,9 @@ const Main = (options) => {
         target.style[style.attribute] = style.animateTo;
         DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: attribute "${style.attribute}" now is: ${target.style[style.attribute]}`);
     });
-    if(target.style.transition === '') {
+    if (target.style.transition === '') {
         throw new Error(`Transitions invalid: ${transitions}`);
-    };
+    }
 };
 
 module.exports = Main;
