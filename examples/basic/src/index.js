@@ -9,7 +9,7 @@ document.getElementById('button').addEventListener('click', () => {
                 animateTo: '100%',
                 duration: 1200,
                 easing: 'ease-in',
-                pctContent: true
+                pctToScroll: true
             },
             {
                 attribute: 'opacity',
