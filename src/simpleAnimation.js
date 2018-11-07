@@ -83,7 +83,7 @@ const Main = (options) => {
         DEBUG = false,
     } = options;
     DEBUG && INCLUDE_DEBUG && console.info('DEBUG: simpleAnimation startet with config:', options);
-    if (!(target instanceof Element || target instanceof HTMLDocument)) {
+    if (!(target instanceof window.Element || target instanceof window.HTMLDocument)) {
         throw new Error(`target undefinied or not HTMLElement`, target);
     }
     if (!Array.isArray(animations)) {
