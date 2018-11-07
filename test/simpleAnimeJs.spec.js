@@ -1,4 +1,6 @@
-/* eslint-disable */
+/* eslint-disable no-undef*/
+'use strict';
+
 require('./config');
 
 const simpleAnimeJs = require('../src/simpleAnimation');
@@ -36,8 +38,6 @@ describe('simpleAnimeJs', function() {
 
             const element = document.getElementById('testid');
 
-            console.log('element.style._values', element.style._values);
-
             expect(element.style._values).to.eql({
                 height: '0px',
                 opacity: '1',
@@ -45,15 +45,6 @@ describe('simpleAnimeJs', function() {
             });
             expect(element.style.transition).to.eql(
                 'height 5s linear,max-width 0.25s fadeout,opacity 0.25s linear'
-            );
-        });
-        it('should throw an error if ispercentage and attribute false', () => {
-            this.options.animations[0].attribute = 'high';
-
-            assert.throws(
-                simpleAnimeJs.bind(undefined, this.options),
-                Error,
-                'Invalid direction'
             );
         });
         it('should use set default easing and default duration', () => {
@@ -73,6 +64,102 @@ describe('simpleAnimeJs', function() {
             expect(element.style.transition).to.eql(
                 'height 5s fadein,max-width 1.337s fadeout,opacity 1.337s fadein'
             );
+        });
+        describe('should throw an error', () => {
+            it('when ispercentage and attribute false', () => {
+                this.options.animations[0].attribute = 'high';
+
+                assert.throws(
+                    simpleAnimeJs.bind(undefined, this.options),
+                    Error,
+                    'Invalid direction'
+                );
+            });
+            it('when target is not a HTMLElement', () => {
+                this.options.target = 'asdf';
+
+                assert.throws(
+                    simpleAnimeJs.bind(undefined, this.options),
+                    Error,
+                    `target undefinied or not HTMLElement: ${this.options.target}`
+                );
+            });
+            it('when animations is not an array', () => {
+                this.options.animations = 1234;
+
+                assert.throws(
+                    simpleAnimeJs.bind(undefined, this.options),
+                    Error,
+                    `animations undefinied or not Array: ${this.options.animations}`
+                );
+            });
+            it('when defaultDuration is not a number', () => {
+                this.options.defaultDuration = 'long';
+
+                assert.throws(
+                    simpleAnimeJs.bind(undefined, this.options),
+                    Error,
+                    `defaultDuration is not a number: ${this.options.defaultDuration}`
+                );
+            });
+            it('when defaultEasing is not a string', () => {
+                this.options.defaultEasing = [];
+
+                assert.throws(
+                    simpleAnimeJs.bind(undefined, this.options),
+                    Error,
+                    `defaultEasing is not a string: ${this.options.defaultEasing}`
+                );
+            });
+            it('when DEBUG is not a boolean', () => {
+                this.options.DEBUG = 'true';
+
+                assert.throws(
+                    simpleAnimeJs.bind(undefined, this.options),
+                    Error,
+                    `DEBUG is not a boolean: ${this.options.DEBUG}`
+                );
+            });
+            it('when attribute is not a string', () => {
+                this.options.animations[0].attribute = {};
+
+                assert.throws(
+                    simpleAnimeJs.bind(undefined, this.options),
+                    Error,
+                    `attribute undefinied or false type: ${
+                        this.options.animations[0].attribute
+                    }`
+                );
+            });
+            it('when pctToScroll is not a boolean', () => {
+                this.options.animations[0].pctToScroll = 0;
+
+                assert.throws(
+                    simpleAnimeJs.bind(undefined, this.options),
+                    Error,
+                    `pctToScroll is not a boolean: ${
+                        this.options.animations[0].pctToScroll
+                    }`
+                );
+            });
+            it('when duration is not a number', () => {
+                this.options.animations[0].duration = '0';
+
+                assert.throws(
+                    simpleAnimeJs.bind(undefined, this.options),
+                    Error,
+                    `duration is not a number: ${this.options.animations[0].duration}`
+                );
+            });
+            it('when easing is not a string', () => {
+                this.options.animations[0].easing = 0;
+
+                assert.throws(
+                    simpleAnimeJs.bind(undefined, this.options),
+                    Error,
+                    `easing is not a string ${this.options.animations[0].easing}`
+                );
+            });
         });
     });
 });
