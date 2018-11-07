@@ -84,7 +84,7 @@ const Main = (options) => {
     } = options;
     DEBUG && INCLUDE_DEBUG && console.info('DEBUG: simpleAnimation startet with config:', options);
     if (!(target instanceof window.Element || target instanceof window.HTMLDocument)) {
-        throw new Error(`target undefinied or not HTMLElement`, target);
+        throw new Error(`target undefinied or not HTMLElement: ${target}`);
     }
     if (!Array.isArray(animations)) {
         throw new Error(`animations undefinied or not Array: ${animations}`);
@@ -142,6 +142,7 @@ const Main = (options) => {
         target.style[style.attribute] = style.animateTo;
         DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: attribute "${style.attribute}" now is: ${target.style[style.attribute]}`);
     });
+    /* istanbul ignore if */
     if (target.style.transition === '') {
         throw new Error(`Transitions invalid: ${transitions}`);
     }
