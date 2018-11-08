@@ -1,5 +1,10 @@
 language: node_js
-node_js: 
+cache:
+  directories:
+    - ~/.npm
+notifications:
+  email: false
+node_js:
   - "lts/*"
 before_script:
   - npm run check
@@ -7,6 +12,8 @@ before_script:
 script:
   - npm run build
   - cd examples/basic/ && npm run build && cd ../..
+after_success:
+  - npm run travis-deploy-once "npm run semantic-release"
 before_deploy:
   - npm run create-documentation
 deploy:
@@ -17,3 +24,6 @@ deploy:
   local-dir: ./docs
   on:
     branch: master
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/

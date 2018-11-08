@@ -1,36 +1,44 @@
 {
-    "name": "simple-animation-js",
-    "version": "1.0.2",
-    "description": "Simple animation library which uses CSS transitions in the background and allows animating dimension percentages.",
-    "browser": "dist/simpleAnimation.min.js",
-    "license": "MIT",
-    "author": "Raphael Hättich / Competec Service AG",
-    "private": false,
-    "scripts": {
-        "lint": "eslint src/**/*.js",
-        "lint-fix": "eslint --fix src/**/*.js",
-        "test": "mocha test/**/*.spec.js",
-        "coverage": "nyc --reporter=html --reporter=text --reporter=json mocha test/**/*.spec.js",
-        "check-coverage": "istanbul-threshold-exit-code coverage/coverage-final.json --global 100",
-        "build-nodebug": "google-closure-compiler --js=src/simpleAnimation.js --js_output_file=dist/simpleAnimation.nodebug.min.js --language_out=ECMASCRIPT3 --assume_function_wrapper --define='INCLUDE_DEBUG=false'",
-        "build-prod": "google-closure-compiler --js=src/simpleAnimation.js --js_output_file=dist/simpleAnimation.min.js --language_out=ECMASCRIPT3 --assume_function_wrapper --define='INCLUDE_DEBUG=true'",
-        "build": "npm run build-prod && npm run build-nodebug",
-        "create-documentation": "jsdoc --configure jsdoc.json --verbose",
-        "check": "npm run lint && npm run coverage && npm run check-coverage && npm run build && npm run create-documentation"
-    },
-    "devDependencies": {
-        "chai": "^4.2.0",
-        "docdash": "^1.0.0",
-        "eslint": "^5.7.0",
-        "eslint-config-airbnb-base": "^13.1.0",
-        "eslint-plugin-import": "^2.14.0",
-        "google-closure-compiler": "^20181008.0.0",
-        "istanbul-threshold-exit-code": "^1.0.3",
-        "jsdoc": "^3.5.5",
-        "jsdom": "^12.2.0",
-        "mocha": "^5.2.0",
-        "nyc": "^13.1.0",
-        "sinon": "^6.3.5",
-        "sinon-chai": "^3.2.0"
-    }
+  "name": "simple-animation-js",
+  "version": "0.0.0-development",
+  "description": "Simple animation library which uses CSS transitions in the background and allows animating dimension percentages.",
+  "browser": "dist/simpleAnimation.min.js",
+  "license": "MIT",
+  "author": "Raphael Hättich / Competec Service AG",
+  "private": false,
+  "scripts": {
+    "lint": "eslint src/**/*.js",
+    "lint-fix": "eslint --fix src/**/*.js",
+    "test": "mocha test/**/*.spec.js",
+    "coverage": "nyc --reporter=html --reporter=text --reporter=json mocha test/**/*.spec.js",
+    "check-coverage": "istanbul-threshold-exit-code coverage/coverage-final.json --global 100",
+    "build-nodebug": "google-closure-compiler --js=src/simpleAnimation.js --js_output_file=dist/simpleAnimation.nodebug.min.js --language_out=ECMASCRIPT3 --assume_function_wrapper --define='INCLUDE_DEBUG=false'",
+    "build-prod": "google-closure-compiler --js=src/simpleAnimation.js --js_output_file=dist/simpleAnimation.min.js --language_out=ECMASCRIPT3 --assume_function_wrapper --define='INCLUDE_DEBUG=true'",
+    "build": "npm run build-prod && npm run build-nodebug",
+    "create-documentation": "jsdoc --configure jsdoc.json --verbose",
+    "check": "npm run lint && npm run coverage && npm run check-coverage && npm run build && npm run create-documentation",
+    "travis-deploy-once": "travis-deploy-once",
+    "semantic-release": "semantic-release"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "docdash": "^1.0.0",
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "google-closure-compiler": "^20181008.0.0",
+    "istanbul-threshold-exit-code": "^1.0.3",
+    "jsdoc": "^3.5.5",
+    "jsdom": "^12.2.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "sinon": "^6.3.5",
+    "sinon-chai": "^3.2.0",
+    "travis-deploy-once": "^5.0.9",
+    "semantic-release": "^15.10.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Competec/simple-animation-js.git"
+  }
 }
