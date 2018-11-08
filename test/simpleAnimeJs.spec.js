@@ -1,5 +1,4 @@
 /* eslint-disable no-undef*/
-'use strict';
 
 require('./config');
 const simpleAnimeJs = require('../src/simpleAnimation');

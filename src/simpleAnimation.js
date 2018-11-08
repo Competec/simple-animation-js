@@ -1,4 +1,3 @@
-'use strict';
 /** @define {boolean} */
 const INCLUDE_DEBUG = true;
 /**
