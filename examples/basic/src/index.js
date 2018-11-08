@@ -9,13 +9,13 @@ document.getElementById('button').addEventListener('click', () => {
                 animateTo: '100%',
                 duration: 1200,
                 easing: 'ease-in',
-                pctToScroll: true
+                pctToScroll: true,
             },
             {
                 attribute: 'opacity',
                 animateTo: 1,
-                duration: 5500
-            }
+                duration: 5500,
+            },
         ],
         defaultDuration: 1000,
         defaultEasing: 'ease-out',
