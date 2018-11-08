@@ -6,6 +6,7 @@
   "license": "MIT",
   "author": "Raphael Hättich / Competec Service AG",
   "private": false,
+  "release": { "branch": "init" },
   "scripts": {
     "lint": "eslint src/**/*.js",
     "lint-fix": "eslint --fix src/**/*.js",
