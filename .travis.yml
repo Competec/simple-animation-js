@@ -8,6 +8,7 @@ node_js:
   - "lts/*"
 install:
   - npm install -g codecov
+  - npm install
 before_script:
   - npm run check
   - cd examples/basic/ && npm install && cd ../..
