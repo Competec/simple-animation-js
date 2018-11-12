@@ -18,7 +18,7 @@
 The documentation is found under [this link](https://competec.github.io/simple-animation-js) or in the `gh-pages` branch.
 The starting point of the documentation is the Module `simpleAnimation`.
 
-## Contributen
+## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Competec/simple-animation-js/issues)
 
 If you want to contribute to this project please commit with the `npm run commit` command, this will secure the automatic semantic versioning. 
 
