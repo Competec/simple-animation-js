@@ -6,7 +6,9 @@
   "license": "MIT",
   "author": "Raphael Hättich / Competec Service AG",
   "private": false,
-  "release": { "branch": "init" },
+  "release": {
+    "branch": "init"
+  },
   "scripts": {
     "lint": "eslint src/**/*.js",
     "lint-fix": "eslint --fix src/**/*.js",
@@ -19,7 +21,9 @@
     "create-documentation": "jsdoc --configure jsdoc.json --verbose",
     "check": "npm run lint && npm run coverage && npm run check-coverage && npm run build && npm run create-documentation",
     "travis-deploy-once": "travis-deploy-once",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "create-current-docs-folder": "./create-current-docs-folder.sh",
+    "commit": "sgc"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -36,7 +40,8 @@
     "sinon": "^6.3.5",
     "sinon-chai": "^3.2.0",
     "travis-deploy-once": "^5.0.9",
-    "semantic-release": "^15.10.8"
+    "semantic-release": "^15.10.8",
+    "semantic-git-commit-cli": "^3.1.0"
   },
   "repository": {
     "type": "git",
