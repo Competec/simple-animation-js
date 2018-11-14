@@ -1,7 +1,7 @@
 {
   "name": "simple-animation-js",
   "version": "1.0.3",
-  "description": "Simple animation library which uses CSS transitions in the background and allows animating dimension percentages.",
+  "description": "Simple animation library which uses CSS transitions in the background and allows animating dimension percentages with scrollWidth and scrollHeight.",
   "browser": "dist/simpleAnimation.min.js",
   "license": "MIT",
   "author": "Raphael Hättich / Competec Service AG",
