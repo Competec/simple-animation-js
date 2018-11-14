@@ -7,7 +7,7 @@
   "author": "Raphael Hättich / Competec Service AG",
   "private": false,
   "release": {
-    "branch": "init"
+    "branch": "master"
   },
   "scripts": {
     "lint": "eslint src/**/*.js",
