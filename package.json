@@ -1,8 +1,9 @@
 {
   "name": "simple-animation-js",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Simple animation library which uses CSS transitions in the background and allows animating dimension percentages with scrollWidth and scrollHeight.",
   "browser": "dist/simpleAnimation.min.js",
+  "keywords": ["javascript", "animation", "simple", "css", "transition", "scroll", "height", "width", "animate", "library"],
   "license": "MIT",
   "author": "Raphael Hättich / Competec Service AG",
   "private": false,
@@ -46,5 +47,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Competec/simple-animation-js.git"
-  }
+  },
+  "bugs": "https://github.com/Competec/simple-animation-js/issues",
+  "homepage": "https://competec.github.io/simple-animation-js"
 }
