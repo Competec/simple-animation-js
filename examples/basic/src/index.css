@@ -1,0 +1,15 @@
+.content {
+    height: 300px;
+    width: 300px;
+    background-color: #006E6D;
+}
+.wrapper {
+    overflow: hidden;
+    margin-top: 30px;
+    display: flex;
+    height: 10px;
+    opacity: 0.2;
+}
+.button {
+    margin-top: 40px;
+}
