@@ -59,7 +59,7 @@ const handlePercentage = (domTarget, attribute, animateTo, DEBUG) => {
     const checkedHeight = checkIfHeight(attribute);
     const checkedWidth = checkIfWidth(attribute);
     if (!checkedHeight && !checkedWidth) {
-        throw new Error(`Invalid direction`, attribute);
+        throw new Error(`Invalid direction: ${attribute}`);
     }
     const value = checkedHeight ?
         domTarget.scrollHeight :
