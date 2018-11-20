@@ -40,8 +40,7 @@ const options = {
 		animateTo: 1
 	}],
 	defaultDuration: 350,
-	defaultEasing: 'ease-out
-	'
+	defaultEasing: 'ease-out'
 };
 simpleAnimationJs(options);
 ```
