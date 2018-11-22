@@ -79,7 +79,7 @@ describe('simpleAnimeJs', function() {
                 assert.throws(
                     simpleAnimeJs.bind(undefined, this.options),
                     Error,
-                    `target undefinied or not HTMLElement: ${this.options.target}`
+                    `${this.options.target} is not of type: ${window.Element.toString()}`
                 );
             });
             it('when animations is not an array', () => {
@@ -88,7 +88,7 @@ describe('simpleAnimeJs', function() {
                 assert.throws(
                     simpleAnimeJs.bind(undefined, this.options),
                     Error,
-                    `animations undefinied or not Array: ${this.options.animations}`
+                    `${this.options.animations} is not of type: ${Array.toString()}`
                 );
             });
             it('when defaultDuration is not a number', () => {
@@ -97,7 +97,7 @@ describe('simpleAnimeJs', function() {
                 assert.throws(
                     simpleAnimeJs.bind(undefined, this.options),
                     Error,
-                    `defaultDuration is not a number: ${this.options.defaultDuration}`
+                    `${this.options.defaultDuration} is not of type: number`
                 );
             });
             it('when defaultEasing is not a string', () => {
@@ -106,7 +106,7 @@ describe('simpleAnimeJs', function() {
                 assert.throws(
                     simpleAnimeJs.bind(undefined, this.options),
                     Error,
-                    `defaultEasing is not a string: ${this.options.defaultEasing}`
+                    `${this.options.defaultEasing} is not of type: string`
                 );
             });
             it('when DEBUG is not a boolean', () => {
@@ -115,7 +115,7 @@ describe('simpleAnimeJs', function() {
                 assert.throws(
                     simpleAnimeJs.bind(undefined, this.options),
                     Error,
-                    `DEBUG is not a boolean: ${this.options.DEBUG}`
+                    `${this.options.DEBUG} is not of type: boolean`
                 );
             });
             it('when attribute is not a string', () => {
