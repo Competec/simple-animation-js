@@ -82,10 +82,10 @@ const Main = (options) => {
         DEBUG = false,
     } = options;
     DEBUG && INCLUDE_DEBUG && console.info('DEBUG: simpleAnimation startet with config:', options);
-    if (!(target instanceof window.Element || target instanceof window.HTMLDocument)) {
+    if (!(target instanceof window.Element)) {
         throw new Error(`target undefinied or not HTMLElement: ${target}`);
     }
-    if (!Array.isArray(animations)) {
+    if (!(animations instanceof Array)) {
         throw new Error(`animations undefinied or not Array: ${animations}`);
     }
     if (typeof defaultDuration !== 'number') {
