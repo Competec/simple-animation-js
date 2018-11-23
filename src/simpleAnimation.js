@@ -1,5 +1,4 @@
-/** @define {boolean} */
-const INCLUDE_DEBUG = true;
+import simpleTypeCheck from 'simple-type-check';
 /**
 * @typedef options
 * @type {Object}
@@ -55,7 +54,7 @@ const msToSeconds = value => `${value / 1000}s`;
  * @returns {string} the result as string with `px` added.
  */
 const handlePercentage = (domTarget, attribute, animateTo, DEBUG) => {
-    DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: "pctToScroll" is true, convert "${animateTo}"`);
+    DEBUG && console.info(`DEBUG: "pctToScroll" is true, convert "${animateTo}"`);
     const checkedHeight = checkIfHeight(attribute);
     const checkedWidth = checkIfWidth(attribute);
     if (!checkedHeight && !checkedWidth) {
@@ -65,7 +64,7 @@ const handlePercentage = (domTarget, attribute, animateTo, DEBUG) => {
         domTarget.scrollHeight :
         domTarget.scrollWidth;
     const pixel = `${value * getDecimalFromPercentage(animateTo)}px`;
-    DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: converted "${animateTo}" to "${pixel}" from attribute "${attribute}"`);
+    DEBUG && console.info(`DEBUG: converted "${animateTo}" to "${pixel}" from attribute "${attribute}"`);
     return pixel;
 };
 /**
@@ -81,26 +80,18 @@ const Main = (options) => {
         defaultEasing = 'linear',
         DEBUG = false,
     } = options;
-    DEBUG && INCLUDE_DEBUG && console.info('DEBUG: simpleAnimation startet with config:', options);
-    if (!(target instanceof window.Element)) {
-        throw new Error(`target undefinied or not HTMLElement: ${target}`);
-    }
-    if (!(animations instanceof Array)) {
-        throw new Error(`animations undefinied or not Array: ${animations}`);
-    }
-    if (typeof defaultDuration !== 'number') {
-        throw new Error(`defaultDuration is not a number: ${defaultDuration}`);
-    }
-    if (typeof defaultEasing !== 'string') {
-        throw new Error(`defaultEasing is not a string: ${defaultEasing}`);
-    }
-    if (typeof DEBUG !== 'boolean') {
-        throw new Error(`DEBUG is not a boolean: ${DEBUG}`);
-    }
+    DEBUG && console.info('DEBUG: simpleAnimation startet with config:', options);
+
+    simpleTypeCheck(target, window.Element);
+    simpleTypeCheck(animations, Array);
+    simpleTypeCheck(defaultDuration, 'number');
+    simpleTypeCheck(defaultEasing, 'string');
+    simpleTypeCheck(DEBUG, 'boolean');
+
     const transitions = [];
     const styles = [];
     animations.forEach((animation, index) => {
-        DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: process ${index + 1}. animation with options:`, animation);
+        DEBUG && console.info(`DEBUG: process ${index + 1}. animation with options:`, animation);
         const {
             attribute,
             pctToScroll = false,
@@ -108,18 +99,12 @@ const Main = (options) => {
             easing = defaultEasing,
         } = animation;
         let {animateTo} = animation;
-        if (typeof attribute !== 'string') {
-            throw new Error(`attribute undefinied or false type: ${attribute}`);
-        }
-        if (typeof pctToScroll !== 'boolean') {
-            throw new Error(`pctToScroll is not a boolean: ${pctToScroll}`);
-        }
-        if (typeof duration !== 'number') {
-            throw new Error(`duration is not a number: ${duration}`);
-        }
-        if (typeof easing !== 'string') {
-            throw new Error(`easing is not a string ${easing}`);
-        }
+
+        simpleTypeCheck(attribute, 'string');
+        simpleTypeCheck(pctToScroll, 'boolean');
+        simpleTypeCheck(duration, 'number');
+        simpleTypeCheck(easing, 'string');
+
         animateTo = pctToScroll ?
             handlePercentage(target, attribute, animateTo, DEBUG) :
             animateTo;
@@ -130,16 +115,16 @@ const Main = (options) => {
         });
         const transition = `${attribute} ${msToSeconds(duration)} ${easing}`;
         transitions.push(transition);
-        DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: animate "${attribute}" to "${animateTo}" with transition: ${transition}`);
+        DEBUG && console.info(`DEBUG: animate "${attribute}" to "${animateTo}" with transition: ${transition}`);
     });
     const joinedTransitions = transitions.join();
-    DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: transitions to append: ${transitions.join()}`);
+    DEBUG && console.info(`DEBUG: transitions to append: ${transitions.join()}`);
     target.style.transition = joinedTransitions;
-    DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: transitions now are: ${target.style.transition}`);
+    DEBUG && console.info(`DEBUG: transitions now are: ${target.style.transition}`);
     styles.forEach((style) => {
-        DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: attribute to append: ${style.attribute}, value to append: ${style.animateTo}`);
+        DEBUG && console.info(`DEBUG: attribute to append: ${style.attribute}, value to append: ${style.animateTo}`);
         target.style[style.attribute] = style.animateTo;
-        DEBUG && INCLUDE_DEBUG && console.info(`DEBUG: attribute "${style.attribute}" now is: ${target.style[style.attribute]}`);
+        DEBUG && console.info(`DEBUG: attribute "${style.attribute}" now is: ${target.style[style.attribute]}`);
     });
     /* istanbul ignore if */
     if (target.style.transition === '') {
