@@ -1,4 +1,4 @@
-import simpleTypeCheck from 'simple-type-check';
+const simpleTypeCheck = require('simple-type-check');
 /**
 * @typedef options
 * @type {Object}
