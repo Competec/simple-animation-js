@@ -1,4 +1,4 @@
-import simpleAnimationJs from '../../../dist/simpleAnimation.min';
+const simpleAnimationJs = require('../../../dist/simpleAnimation.min');
 
 document.getElementById('button').addEventListener('click', () => {
     const options = {
