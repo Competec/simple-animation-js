@@ -1,3 +1,4 @@
+const simpleTypeCheck = require('simple-type-check');
 /** @define {boolean} */
 const INCLUDE_DEBUG = true;
 /**
@@ -82,21 +83,13 @@ const Main = (options) => {
         DEBUG = false,
     } = options;
     DEBUG && INCLUDE_DEBUG && console.info('DEBUG: simpleAnimation startet with config:', options);
-    if (!(target instanceof window.Element)) {
-        throw new Error(`target undefinied or not HTMLElement: ${target}`);
-    }
-    if (!(animations instanceof Array)) {
-        throw new Error(`animations undefinied or not Array: ${animations}`);
-    }
-    if (typeof defaultDuration !== 'number') {
-        throw new Error(`defaultDuration is not a number: ${defaultDuration}`);
-    }
-    if (typeof defaultEasing !== 'string') {
-        throw new Error(`defaultEasing is not a string: ${defaultEasing}`);
-    }
-    if (typeof DEBUG !== 'boolean') {
-        throw new Error(`DEBUG is not a boolean: ${DEBUG}`);
-    }
+    
+    simpleTypeCheck(target, window.Element);
+    simpleTypeCheck(animations, Array);
+    simpleTypeCheck(defaultDuration, 'number');
+    simpleTypeCheck(defaultEasing, 'string');
+    simpleTypeCheck(DEBUG, 'boolean');
+
     const transitions = [];
     const styles = [];
     animations.forEach((animation, index) => {
@@ -108,18 +101,12 @@ const Main = (options) => {
             easing = defaultEasing,
         } = animation;
         let {animateTo} = animation;
-        if (typeof attribute !== 'string') {
-            throw new Error(`attribute undefinied or false type: ${attribute}`);
-        }
-        if (typeof pctToScroll !== 'boolean') {
-            throw new Error(`pctToScroll is not a boolean: ${pctToScroll}`);
-        }
-        if (typeof duration !== 'number') {
-            throw new Error(`duration is not a number: ${duration}`);
-        }
-        if (typeof easing !== 'string') {
-            throw new Error(`easing is not a string ${easing}`);
-        }
+
+        simpleTypeCheck(attribute, 'string');
+        simpleTypeCheck(pctToScroll, 'boolean');
+        simpleTypeCheck(duration, 'number');
+        simpleTypeCheck(easing, 'string');
+        
         animateTo = pctToScroll ?
             handlePercentage(target, attribute, animateTo, DEBUG) :
             animateTo;

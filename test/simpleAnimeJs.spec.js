@@ -79,7 +79,7 @@ describe('simpleAnimeJs', function() {
                 assert.throws(
                     simpleAnimeJs.bind(undefined, this.options),
                     Error,
-                    `${this.options.target} is not of type: ${window.Element.toString()}`
+                    `${this.options.target} is not of type: ${window.Element}`
                 );
             });
             it('when animations is not an array', () => {
@@ -88,7 +88,7 @@ describe('simpleAnimeJs', function() {
                 assert.throws(
                     simpleAnimeJs.bind(undefined, this.options),
                     Error,
-                    `${this.options.animations} is not of type: ${Array.toString()}`
+                    `${this.options.animations} is not of type: ${Array}`
                 );
             });
             it('when defaultDuration is not a number', () => {
@@ -124,9 +124,7 @@ describe('simpleAnimeJs', function() {
                 assert.throws(
                     simpleAnimeJs.bind(undefined, this.options),
                     Error,
-                    `attribute undefinied or false type: ${
-                        this.options.animations[0].attribute
-                    }`
+                    `${this.options.animations[0].attribute} is not of type: string`
                 );
             });
             it('when pctToScroll is not a boolean', () => {
@@ -135,9 +133,7 @@ describe('simpleAnimeJs', function() {
                 assert.throws(
                     simpleAnimeJs.bind(undefined, this.options),
                     Error,
-                    `pctToScroll is not a boolean: ${
-                        this.options.animations[0].pctToScroll
-                    }`
+                    `${this.options.animations[0].pctToScroll} is not of type: boolean`
                 );
             });
             it('when duration is not a number', () => {
@@ -146,7 +142,7 @@ describe('simpleAnimeJs', function() {
                 assert.throws(
                     simpleAnimeJs.bind(undefined, this.options),
                     Error,
-                    `duration is not a number: ${this.options.animations[0].duration}`
+                    `${this.options.animations[0].duration} is not of type: number`
                 );
             });
             it('when easing is not a string', () => {
@@ -155,7 +151,7 @@ describe('simpleAnimeJs', function() {
                 assert.throws(
                     simpleAnimeJs.bind(undefined, this.options),
                     Error,
-                    `easing is not a string ${this.options.animations[0].easing}`
+                    `${this.options.animations[0].easing} is not of type: string`
                 );
             });
         });

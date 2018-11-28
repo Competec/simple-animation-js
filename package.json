@@ -3,7 +3,18 @@
   "version": "1.0.5",
   "description": "Simple animation library which uses CSS transitions in the background and allows animating dimension percentages with scrollWidth and scrollHeight.",
   "browser": "dist/simpleAnimation.min.js",
-  "keywords": ["javascript", "animation", "simple", "css", "transition", "scroll", "height", "width", "animate", "library"],
+  "keywords": [
+    "javascript",
+    "animation",
+    "simple",
+    "css",
+    "transition",
+    "scroll",
+    "height",
+    "width",
+    "animate",
+    "library"
+  ],
   "license": "MIT",
   "author": "Raphael Hättich / Competec Service AG",
   "private": false,
@@ -16,8 +27,8 @@
     "test": "mocha test/**/*.spec.js",
     "coverage": "nyc --reporter=html --reporter=text --reporter=json mocha test/**/*.spec.js",
     "check-coverage": "istanbul-threshold-exit-code coverage/coverage-final.json --global 100",
-    "build-nodebug": "google-closure-compiler --js=src/simpleAnimation.js --js_output_file=dist/simpleAnimation.nodebug.min.js --language_out=ECMASCRIPT3 --assume_function_wrapper --define='INCLUDE_DEBUG=false'",
-    "build-prod": "google-closure-compiler --js=src/simpleAnimation.js --js_output_file=dist/simpleAnimation.min.js --language_out=ECMASCRIPT3 --assume_function_wrapper --define='INCLUDE_DEBUG=true'",
+    "build-nodebug": "google-closure-compiler --flagfile closure.nodebug.conf",
+    "build-prod": "google-closure-compiler --flagfile closure.prod.conf",
     "build": "npm run build-prod && npm run build-nodebug",
     "create-documentation": "rm -rf docs/ && jsdoc --configure jsdoc.json --verbose && npm run move-docs",
     "check": "npm run lint && npm run coverage && npm run check-coverage && npm run build && npm run create-documentation",
@@ -49,5 +60,8 @@
     "url": "https://github.com/Competec/simple-animation-js.git"
   },
   "bugs": "https://github.com/Competec/simple-animation-js/issues",
-  "homepage": "https://competec.github.io/simple-animation-js"
+  "homepage": "https://competec.github.io/simple-animation-js",
+  "dependencies": {
+    "simple-type-check": "^1.2.6"
+  }
 }
