@@ -1,6 +1,7 @@
 [![GitHub license](https://img.shields.io/github/license/Competec/simple-animation-js.svg)](https://github.com/Competec/simple-animation-js/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/Competec/simple-animation-js.svg?branch=master)](https://travis-ci.org/Competec/simple-animation-js)
 [![NPM version](https://img.shields.io/npm/v/simple-animation-js.svg?style=flat)](https://www.npmjs.com/package/simple-animation-js)
+[![NPM downloads](https://img.shields.io/npm/dt/simple-animation-js.svg?style=flat)](https://www.npmjs.com/package/simple-animation-js)
 [![GitHub issues](https://img.shields.io/github/issues/Competec/simple-animation-js.svg)](https://github.com/Competec/simple-animation-js/issues)
 [![codecov](https://codecov.io/gh/Competec/simple-animation-js/branch/master/graph/badge.svg)](https://codecov.io/gh/Competec/simple-animation-js)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
