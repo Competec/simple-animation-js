@@ -25,7 +25,7 @@ If you want to contribute to this project please commit with the `npm run commit
 ## Example
 
 ```
-const simpleAnimationJs = require('simpleAnimationJs');
+const simpleAnimationJs = require('simple-animation-js');
 const elementToAnimate = document.getElementById('testDiv');
 const options = {
 	target: elementToAnimate,
