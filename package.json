@@ -1,6 +1,6 @@
 {
   "name": "simple-animation-js",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Simple animation library which uses CSS transitions in the background and allows animating dimension percentages with scrollWidth and scrollHeight.",
   "browser": "dist/simpleAnimation.min.js",
   "keywords": [
@@ -62,6 +62,6 @@
   "bugs": "https://github.com/Competec/simple-animation-js/issues",
   "homepage": "https://competec.github.io/simple-animation-js",
   "dependencies": {
-    "simple-type-check": "^1.2.6"
+    "simple-type-check": "^1.2.7"
   }
 }
