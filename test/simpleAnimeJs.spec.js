@@ -37,6 +37,7 @@ describe('simpleAnimeJs', function() {
             const element = document.getElementById('testid');
 
             expect(element.style._values).to.eql({
+                transition: 'height 5s linear,max-width 0.25s fadeout,opacity 0.25s linear',
                 height: '0px',
                 opacity: '1',
                 'max-width': '0px',
@@ -55,6 +56,7 @@ describe('simpleAnimeJs', function() {
             const element = document.getElementById('testid');
 
             expect(element.style._values).to.eql({
+                transition: 'height 5s fadein,max-width 1.337s fadeout,opacity 1.337s fadein',
                 height: '0px',
                 opacity: '1',
                 'max-width': '0px',
